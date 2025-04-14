@@ -42,8 +42,8 @@ const MatchStatsSchema = new Schema(
 // 해당 유저의 승률을 가져오는 메소드
 MatchStatsSchema.statics.getWinRate = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const winCount = await this.countDocuments({
     user: userID,
@@ -62,8 +62,8 @@ MatchStatsSchema.statics.getWinRate = async function (userID) {
 // 해당 유저의 승 판수를 가져오는 메소드
 MatchStatsSchema.statics.getWinCount = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const winCount = await this.countDocuments({
     user: userID,
@@ -77,8 +77,8 @@ MatchStatsSchema.statics.getWinCount = async function (userID) {
 // 해당 유저의 패 판수를 가져오는 메소드
 MatchStatsSchema.statics.getLoseCount = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const loseCount = await this.countDocuments({
     user: userID,
@@ -92,8 +92,8 @@ MatchStatsSchema.statics.getLoseCount = async function (userID) {
 // 해당 유저의 전적을 가져와서 승률 60% 이상이면 User의 isMVP를 true로 이하면 false로 설정하는 메소드
 MatchStatsSchema.statics.getMVP = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const winCount = await this.countDocuments({
     user: userID,
@@ -120,8 +120,8 @@ MatchStatsSchema.statics.getMVP = async function (userID) {
 // 해당 유저의 전적을 가져와서 승률 40% 이하이면 User의 isSad를 true로 이상이면 false로 설정하는 메소드
 MatchStatsSchema.statics.getSad = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const winCount = await this.countDocuments({
     user: userID,
@@ -153,8 +153,8 @@ MatchStatsSchema.statics.getMatchStats = async function (userID, championID) {
 // 해당 유저의 최근 5게임 전적을 가져와서 win, lose 를 구분하여 반환하는 메소드
 MatchStatsSchema.statics.getRecentMatchStats = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const response = await this.find({ user: userID, createdAt: dateFilter })
     .sort({ createdAt: -1 })
@@ -172,8 +172,8 @@ MatchStatsSchema.statics.getRecentMatchStats = async function (userID) {
 // 해당 유저의 최근 10게임 전적 가져오기
 MatchStatsSchema.statics.getRecentTenMatchStats = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const response = await this.find({ user: userID, createdAt: dateFilter })
     .sort({ createdAt: -1 })
@@ -185,8 +185,8 @@ MatchStatsSchema.statics.getRecentTenMatchStats = async function (userID) {
 // 해당 유저의 최근 10게임 승률 가져오기
 MatchStatsSchema.statics.getRecentTenMatchWinRate = async function (userID) {
   // 날짜 정하기
-  const year = new Date().getFullYear();
-  const dateFilter = getDateAfter(year, 11, 30); // 여기 수정하면 됨.
+
+  const dateFilter = getDateAfter(); // 여기 수정하면 됨.
 
   const response = await this.find({ user: userID, createdAt: dateFilter })
     .sort({ createdAt: -1 })
