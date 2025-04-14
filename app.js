@@ -26,6 +26,6 @@ mongoose
   });
 
 // 라우터 연결
-app.listen(7000, () => {
+app.listen(8080, () => {
   console.log("서버 시작");
 });
